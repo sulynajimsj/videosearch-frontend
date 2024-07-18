@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoClipAI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="welcome-screen" class="screen active">
+            <h1>Welcome to SkmAI</h1>
+            <p>Upload a YouTube Video, Search through it using AI and Download the clips</p>
+            <input type="text" id="youtubeLink" placeholder="Enter YouTube URL">
+            <button id="startSession">Start Session</button>
+        </div>
+
+        <div id="loading-screen" class="screen">
+            <div class="loader"></div>
+            <p>Processing your video...</p>
+        </div>
+
+        <div id="main-screen" class="screen">
+            <div class="container">
+                <div class="left-panel">
+                    <h2>Video Search</h2>
+                    <input type="text" id="searchInput" placeholder="Search for content...">
+                    <button id="searchButton">Search</button>
+                    <div id="searchResults"></div>
+                </div>
+                <div class="right-panel">
+                    <div id="videoPlayer"></div>
+                </div>
+            </div>
+            <button id="endSession" class="end-session-btn">End Session</button>
+        </div>
+    </div>
+
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Download Clip</h2>
+            <p>Adjust the end time if needed:</p>
+            <input type="number" id="endTimeInput" min="0" step="1">
+            <button id="downloadClip">Download</button>
+            <div id="downloadProgress" class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
