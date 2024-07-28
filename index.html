@@ -9,12 +9,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="header">
+        <button id="signInBtn">Sign In with Google</button>
+        <button id="signOutBtn" style="display: none;">Sign Out</button>
+    </div>
+
     <div id="app">
         <div id="welcome-screen" class="screen active">
             <h1>Welcome to SkmAI</h1>
             <p>Upload a YouTube Video, Search through it using AI and Download the clips</p>
-            <input type="text" id="youtubeLink" placeholder="Enter YouTube URL">
-            <button id="startSession">Start Session</button>
+            <input type="text" id="youtubeLink" placeholder="Enter YouTube URL" disabled>
+            <button id="startSession" disabled>Start Session</button>
         </div>
 
         <div id="loading-screen" class="screen">
@@ -26,15 +32,17 @@
             <div class="container">
                 <div class="left-panel">
                     <h2>Video Search</h2>
-                    <input type="text" id="searchInput" placeholder="Search for content...">
-                    <button id="searchButton">Search</button>
+                    <div id="searchContainer">
+                        <input type="text" id="searchInput" placeholder="Search for content..." disabled>
+                        <button id="searchButton" disabled>Search</button>
+                    </div>
                     <div id="searchResults"></div>
                 </div>
                 <div class="right-panel">
                     <div id="videoPlayer"></div>
                 </div>
             </div>
-            <button id="endSession" class="end-session-btn">End Session</button>
+            <button id="endSession" class="end-session-btn" disabled>End Session</button>
         </div>
     </div>
 
@@ -48,10 +56,21 @@
             <div id="downloadProgress" class="progress-bar">
                 <div class="progress"></div>
             </div>
+            <div id="downloadSpinner" class="spinner" style="display: none;"></div>
+        </div>
+    </div>
+    
+    <div id="downloadCompleteAlert" class="alert" style="display: none;">
+        <div class="alert-content">
+            <h2>Download Complete</h2>
+            <p>Your clip has been downloaded successfully.</p>
+            <button id="closeAlert">OK</button>
         </div>
     </div>
 
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
